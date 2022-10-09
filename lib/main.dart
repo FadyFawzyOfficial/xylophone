@@ -10,8 +10,10 @@ class XylophoneApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               XylophoneKey(soundNumber: 1, color: Colors.red),
               XylophoneKey(soundNumber: 2, color: Colors.orange),
@@ -41,10 +43,12 @@ class XylophoneKey extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      child: null,
-      style: ElevatedButton.styleFrom(backgroundColor: color),
-      onPressed: () => _playSound(soundNumber),
+    return Expanded(
+      child: ElevatedButton(
+        child: null,
+        style: ElevatedButton.styleFrom(backgroundColor: color),
+        onPressed: () => _playSound(soundNumber),
+      ),
     );
   }
 
