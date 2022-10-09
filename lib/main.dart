@@ -52,6 +52,8 @@ class XylophoneKey extends StatelessWidget {
     );
   }
 
-  void _playSound(int soundNumber) =>
-      _player.play(AssetSource('audios/note$soundNumber.wav'));
+  void _playSound(int soundNumber) async {
+    await _player.release();
+    await _player.play(AssetSource('audios/note$soundNumber.wav'));
+  }
 }
